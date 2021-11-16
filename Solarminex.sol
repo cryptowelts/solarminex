@@ -199,10 +199,10 @@ contract Solarminex is IERC20, Ownable {
     string public constant symbol = "SMX";
     uint8 public constant decimals = 18;
 
-    uint256 private _totalSupply = 1E6 * 1E18;
+    uint256 private _totalSupply = 1500E6 * 1E18;
 
     address public beneficiaryAddress;
-    uint8 public feePercentage = 6;
+    uint8 public feePercentage = 2;
 
     mapping(address => bool) public isExcludedFromFee;
 
@@ -295,8 +295,8 @@ contract Solarminex is IERC20, Ownable {
     }
 
     function setFeePercentage(uint8 feePercentage_) external onlyOwner {
-        require(feePercentage_ <= 10, "MetaPlay: transaction fee percentage exceeds 10");
-        require(feePercentage_ >= 0, "MetaPlay: transaction fee percentage equals 0");
+        require(feePercentage_ <= 10, "Solarminex: transaction fee percentage exceeds 10");
+        require(feePercentage_ >= 0, "Solarminex: transaction fee percentage equals 0");
         feePercentage = feePercentage_;
         emit SetFeePercentage(feePercentage);
     }
